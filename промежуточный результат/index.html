@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="info"></div>
+
+  <script>
+
+    let aDataTable = [
+      { header_h1: 'good!', header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 1 },
+      { header_h1: 'good!', header_h2: 'bead!', header_text: ''      , limit: 12, size: [23,45,67], seach_by: 0 },
+      { header_h1: 'good!', header_h2: 'bead!', header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 1 },
+      { header_h1: 'good!', header_h2: 'bead!', header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 0 },
+      { header_h1: '',      header_h2: 'bead!', header_text: 'close!', limit: 12, size: []        , seach_by: 0 },
+
+      { header_h1: '',      header_h2: 'bead!', header_text: 'close!', limit: 12, size: []        , seach_by: 0 },
+      { header_h1: '',      header_h2: '',      header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 1 },
+      { header_h1: 'good!', header_h2: '',      header_text: '',       limit: 12, size: []        , seach_by: 0 },
+      { header_h1: '',      header_h2: '',      header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 1 },
+      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 1 },
+
+      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 0 },
+      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: [23,45,67], seach_by: 0 },
+      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 0 },
+      { header_h1: 'good!', header_h2: 'bead!', header_text: 'good!' , limit: 12, size: [23,45,67], seach_by: 1 },
+    ]
+
+    let vCheckbox = {
+      header_h1: true,
+      header_h2: true,
+      header_text: true,
+      limit: true,
+      size: true,
+      seach_by: true,
+    }
+
+    /** Проверка на пустоту */
+    function fCheckEmpty(value, chackbox){
+      if(value !== null && value !== undefined){
+        if(typeof value === "object" && value.length) return chackbox ? 1 : 0
+        if(typeof value === "number" && value) return chackbox ? 1 : 0
+        if(typeof value === "string" && value) return chackbox ? 1 : 0
+      }
+      return 0
+    }
+
+    // console.log(fCheckEmpty(null, false)) // 0
+    // console.log(fCheckEmpty(undefined, false)) // 0
+
+     // Пусто
+     console.log(fCheckEmpty([], false)) // 1
+     console.log(fCheckEmpty(0, false)) // 1
+     console.log(fCheckEmpty('', false)) // 1
+
+     // Не пусто
+     console.log(fCheckEmpty([12,34,56], false)) // 0
+     console.log(fCheckEmpty(1, false)) // 0
+     console.log(fCheckEmpty('good!', false)) // 0
+
+    // Неизвестно
+    // console.log(fCheckEmpty({}, false)) // 0
+    // console.log(fCheckEmpty({id:12}, false)) // 0
+
+
+
+    /** Результат сортировки */
+    let aSort = []
+
+    for(const i in aDataTable){
+      let nConformity = 0;
+      for(const key in aDataTable[i]){
+        // Проверяем какие поля соотвецтвуют условию сортировки
+        nConformity += fCheckEmpty(aDataTable[i][key], vCheckbox[key])
+      }
+      // Проверяем где выполнены условия для всех столбцов и отдаем объект 
+      if(nConformity === 6) aSort.push(aDataTable[i])
+    }
+
+    /** ... */
+    console.log(aSort)
+
+    /** Выводим результаты сортировки */
+    for(const key in aSort){
+      document.getElementById('info').innerHTML += `
+      <span>${aSort[key].header_h1}</span>
+      <span>${aSort[key].header_h2}</span>
+      <span>${aSort[key].header_text}</span>
+      <span>${aSort[key].limit}</span>
+      <span>${aSort[key].size}</span>
+      <span>${aSort[key].seach_by}</span><br>`;
+    }
+   
+  </script>
+</body>
+</html>

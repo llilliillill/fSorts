@@ -1,0 +1,76 @@
+    // let aAbstraction = [
+    //   { header_h1: true,  header_h2: false, header_text: false, limit: true, size: false, seach_by: true  },
+    //   { header_h1: true,  header_h2: true,  header_text: false, limit: true, size: true,  seach_by: false },
+    //   { header_h1: true,  header_h2: true,  header_text: true,  limit: true, size: true,  seach_by: true  },
+    //   { header_h1: true,  header_h2: true,  header_text: true,  limit: true, size: true,  seach_by: false },
+    //   { header_h1: false, header_h2: true,  header_text: true,  limit: true, size: false, seach_by: false },
+
+    //   { header_h1: false, header_h2: true,  header_text: true,  limit: true, size: false, seach_by: false },
+    //   { header_h1: false, header_h2: false, header_text: true,  limit: true, size: true,  seach_by: true  },
+    //   { header_h1: true,  header_h2: false, header_text: false, limit: true, size: false, seach_by: false },
+    //   { header_h1: false, header_h2: false, header_text: true,  limit: true, size: true,  seach_by: true  },
+    //   { header_h1: false, header_h2: false, header_text: false, limit: true, size: false, seach_by: true  },
+
+    //   { header_h1: false, header_h2: false, header_text: false, limit: true, size: false, seach_by: false },
+    //   { header_h1: false, header_h2: false, header_text: false, limit: true, size: true,  seach_by: false },
+    //   { header_h1: false, header_h2: false, header_text: false, limit: true, size: false, seach_by: false },
+    //   { header_h1: true,  header_h2: true,  header_text: true,  limit: true, size: true,  seach_by: true  },
+    // ]
+
+
+    // let aSearchParams = [
+    //   { limit: 12, size: [],         seach_by: 1 },
+    //   { limit: 13, size: [],         seach_by: 0 },
+    //   { limit: 14, size: [12,34,56], seach_by: 1 },
+    //   { limit: 15, size: [23,24,13], seach_by: 1 },
+    //   { limit: 16, size: [50,35,13], seach_by: 0 },
+
+    //   { limit: 17, size: [],         seach_by: 1 },
+    //   { limit: 13, size: [12,34,56], seach_by: 0 },
+    //   { limit: 14, size: []        , seach_by: 0 },
+    //   { limit: 15, size: [23,24,13], seach_by: 1 },
+    //   { limit: 16, size: [50,35,13], seach_by: 0 },
+
+    //   { limit: 0,  size:  []       , seach_by: 0 },
+    //   { limit: 13, size: [12,34,56], seach_by: 0 },
+    //   { limit: 14, size: []        , seach_by: 0 },
+    //   { limit: 0, size: [], seach_by: 0 },
+    // ]
+
+    // let aLanding = [
+    //   { header_h1: 'good!', header_h2: '',      header_text: ''       },
+    //   { header_h1: 'good!', header_h2: 'bead!', header_text: ''       },
+    //   { header_h1: 'good!', header_h2: 'bead!', header_text: 'close!' },
+    //   { header_h1: 'good!', header_h2: 'bead!', header_text: 'close!' },
+    //   { header_h1: '',      header_h2: 'bead!', header_text: 'close!' },
+
+    //   { header_h1: '',      header_h2: 'bead!', header_text: 'close!' },
+    //   { header_h1: '',      header_h2: '',      header_text: 'close!' },
+    //   { header_h1: 'good!', header_h2: '',      header_text: 'close!' },
+    //   { header_h1: '',      header_h2: '',      header_text: 'close!' },
+    //   { header_h1: '',      header_h2: '',      header_text: ''       },
+
+    //   { header_h1: '',      header_h2: '',      header_text: ''       },
+    //   { header_h1: '',      header_h2: '',      header_text: ''       },
+    //   { header_h1: '',      header_h2: '',      header_text: ''       },
+    //   { header_h1: 'good!', header_h2: 'good!', header_text: 'good!'  },
+    // ]
+
+    // let aSearchParams = [
+    //   { limit: '12', size: '', seach_by: '1' },
+    //   { limit: '', size: '', seach_by: '' },
+    //   { limit: '', size: '1', seach_by: '1' },
+    //   { limit: '15', size: '1', seach_by: '1' },
+    //   { limit: '16', size: '1', seach_by: '' },
+
+    //   { limit: '', size: '', seach_by: '1' },
+    //   { limit: '13', size: '1', seach_by: '' },
+    //   { limit: '14', size: '', seach_by: '' },
+    //   { limit: '15', size: '1', seach_by: '1' },
+    //   { limit: '16', size: '1', seach_by: '' },
+
+    //   { limit: '',  size: '', seach_by: '' },
+    //   { limit: '13', size: '1', seach_by: '' },
+    //   { limit: '14', size: '', seach_by: '' },
+    //   { limit: '12',  size: '1', seach_by: '1' },
+    // ]

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+
+  </style>
+</head>
+<body>
+
+  <div id="info"></div>
+
+  <script>
+
+    let aDataTable = [
+      { header_h1: 'good!', header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 1 },
+      { header_h1: 'good!', header_h2: 'bead!', header_text: ''      , limit: 12, size: [23,45,67], seach_by: 0 },
+      { header_h1: 'good!', header_h2: 'bead!', header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 1 },
+      { header_h1: 'good!', header_h2: 'bead!', header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 0 },
+      { header_h1: '',      header_h2: 'bead!', header_text: 'close!', limit: 12, size: []        , seach_by: 0 },
+
+      { header_h1: '',      header_h2: 'bead!', header_text: 'close!', limit: 12, size: []        , seach_by: 0 },
+      { header_h1: '',      header_h2: '',      header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 1 },
+      { header_h1: 'good!', header_h2: '',      header_text: '',       limit: 12, size: []        , seach_by: 0 },
+      { header_h1: '',      header_h2: '',      header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 1 },
+      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 1 },
+
+      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 0 },
+      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: [23,45,67], seach_by: 0 },
+      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 0 },
+      { header_h1: 'good!', header_h2: 'bead!', header_text: 'good!' , limit: 12, size: [23,45,67], seach_by: 1 },
+    ]
+
+    let vCheckbox = {
+      header_h1: true,
+      header_h2: true,
+      header_text: true,
+      limit: true,
+      size: true,
+      seach_by: true,
+    }
+
+    /** Проверка на пустоту */
+    function fCheckEmpty(value){
+      if(value !== null && value !== undefined){
+        if(typeof value === "object" && !value.length) return true
+        if(typeof value === "number" && !value) return true
+        if(typeof value === "string" && !value) return true
+      }
+      return false
+    }
+
+    // console.log(fCheckEmpty())
+
+    /** Результат сортировки */
+    let aSort = []
+
+    for(const i in aDataTable){
+      let nConformity = 0;
+      for(const key in aDataTable[i]){
+
+        // Если в столбце не должно быть пустых значений
+        if(vCheckbox[key] && !fCheckEmpty(aDataTable[i][key])) nConformity++
+
+        // Если в столбце должны быть пустые значения
+        if(!vCheckbox[key] && fCheckEmpty(aDataTable[i][key])) nConformity++
+
+      }
+
+      /** Проверяем где выполнены все условия и отдаем объект */
+      if(nConformity === 6){ 
+        aSort.push({ 
+          header_h1: aDataTable[i].header_h1, 
+          header_h2: aDataTable[i].header_h2, 
+          header_text: aDataTable[i].header_text, 
+          limit: aDataTable[i].limit, 
+          size: aDataTable[i].size, 
+          seach_by: aDataTable[i].seach_by 
+        })
+      }
+    }
+
+    /** ... */
+    console.log(aSort)
+
+    /** Выводим результаты сортировки */
+    for(const key in aSort){
+      document.getElementById('info').innerHTML += `
+      <span>${aSort[key].header_h1}</span>
+      <span>${aSort[key].header_h2}</span>
+      <span>${aSort[key].header_text}</span>
+      <span>${aSort[key].limit}</span>
+      <span>${aSort[key].size}</span>
+      <span>${aSort[key].seach_by}</span><br>`;
+    }
+   
+  </script>
+</body>
+</html>
