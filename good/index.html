@@ -13,22 +13,22 @@
   <script>
 
     let aDataTable = [
-      { header_h1: 'good!', header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 1 },
-      { header_h1: 'good!', header_h2: 'bead!', header_text: ''      , limit: 12, size: [23,45,67], seach_by: 0 },
-      { header_h1: 'good!', header_h2: 'bead!', header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 1 },
-      { header_h1: 'good!', header_h2: 'bead!', header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 0 },
-      { header_h1: '',      header_h2: 'bead!', header_text: 'close!', limit: 12, size: []        , seach_by: 0 },
+      { header_h1: '', test: '', header_h2: '',      test2: '', header_text: ''      , limit: 0, size: []        , seach_by: 0 },
+      { header_h1: 'good!', test: '', header_h2: 'bead!', test2: '', header_text: ''      , limit: 12, size: [{key: 12, val:'xl'},{key:18,val:'bead!'}], seach_by: 0 },
+      { header_h1: 'good!', test: '', header_h2: 'bead!', test2: '', header_text: 'close!', limit: 12, size: [{key: 12, val:'xl'},{key:18,val:'bead!'}], seach_by: 1 },
+      { header_h1: 'good!', test: 'test', header_h2: 'bead!', test2: 'test', header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 0 },
+      { header_h1: '',      test: '', header_h2: 'bead!', test2: '', header_text: 'close!', limit: 12, size: []        , seach_by: 0 },
 
-      { header_h1: '',      header_h2: 'bead!', header_text: 'close!', limit: 12, size: []        , seach_by: 0 },
-      { header_h1: '',      header_h2: '',      header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 1 },
-      { header_h1: 'good!', header_h2: '',      header_text: '',       limit: 12, size: []        , seach_by: 0 },
-      { header_h1: '',      header_h2: '',      header_text: 'close!', limit: 12, size: [23,45,67], seach_by: 1 },
-      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 1 },
+      { header_h1: '',      test: '', header_h2: 'bead!', test2: '', header_text: 'close!', limit: 12, size: []        , seach_by: 0 },
+      { header_h1: '',      test: '', header_h2: '',      test2: '', header_text: 'close!', limit: 12, size: [{key: 12, val:'xl'},{key:18,val:'bead!'}], seach_by: 1 },
+      { header_h1: 'good!', test: '', header_h2: '',      test2: '', header_text: '',       limit: 12, size: []        , seach_by: 0 },
+      { header_h1: '',      test: '', header_h2: '',      test2: '', header_text: 'close!', limit: 12, size: [{key: 12, val:'xl'},{key:18,val:'bead!'}], seach_by: 1 },
+      { header_h1: '',      test: '', header_h2: '',      test2: '', header_text: ''      , limit: 0,  size: [{key: 12, val:'xl'},{key:18,val:'bead!'}], seach_by: 0 },
 
-      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 0 },
-      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: [23,45,67], seach_by: 0 },
-      { header_h1: '',      header_h2: '',      header_text: ''      , limit: 12, size: []        , seach_by: 0 },
-      { header_h1: 'good!', header_h2: 'bead!', header_text: 'good!' , limit: 12, size: [23,45,67], seach_by: 1 },
+      { header_h1: '',      test: '', header_h2: '',      test2: '', header_text: ''      , limit: 0, size: []        , seach_by: 1 },
+      { header_h1: '',      test: '', header_h2: '',      test2: '', header_text: ''      , limit: 12, size: [{key: 12, val:'xl'},{key:18,val:'bead!'}], seach_by: 0 },
+      { header_h1: '',      test: '', header_h2: '',      test2: '', header_text: ''      , limit: 0, size: []        , seach_by: 0 },
+      { header_h1: 'good!', test: 'test', header_h2: 'bead!', test2: 'test', header_text: 'good!' , limit: 12, size: [{key: 12, val:'xl'},{key:18,val:'bead!'}], seach_by: 1 },
     ]
 
     let vCheckbox = {
@@ -37,7 +37,7 @@
       header_text: true,
       limit: true,
       size: true,
-      seach_by: true,
+      seach_by:true,
     }
 
     /** Проверка на пустоту/не пустоту */
@@ -83,15 +83,15 @@
     // console.log(fCheckEmpty(null, false)) // 0
     // console.log(fCheckEmpty(undefined, false)) // 0
 
-     // Пусто
-    //  console.log(fCheckEmpty([], true)) // 1
-    //  console.log(fCheckEmpty(0, true))  // 1
-    //  console.log(fCheckEmpty('', true)) // 1
+    // Пусто 
+    //  console.log(fCheckEmpty([], true)) // 1 
+    //  console.log(fCheckEmpty(0,  true)) // 1 
+    //  console.log(fCheckEmpty('', true)) // 1 
 
-     // ...
-     // console.log(' ==== = ==== ')
+    // ... 
+    // console.log(' ==== = ==== ') 
 
-     // Не пусто
+    // Не пусто
     //  console.log(fCheckEmpty([12,34,56], true)) // 0
     //  console.log(fCheckEmpty(1, true)) // 0
     //  console.log(fCheckEmpty('good!', true)) // 0
@@ -109,7 +109,9 @@
       let nConformity = 0;
       for(const key in aDataTable[i]){
         // Проверяем какие поля соотвецтвуют условию сортировки
-        nConformity += fCheckEmpty(aDataTable[i][key], vCheckbox[key])
+        if(vCheckbox[key] !== undefined){
+          nConformity += fCheckEmpty(aDataTable[i][key], vCheckbox[key])
+        }
       }
       // Проверяем где выполнены условия для всех столбцов и отдаем объект 
       if(nConformity === 6) aSort.push(aDataTable[i])
